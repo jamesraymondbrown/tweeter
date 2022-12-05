@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  height: 520px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  background-color: pink;
+  background-image: url("../images/diagmonds-light.png");
+}
+
+#profilePicture {
+  display: flex;
+}
