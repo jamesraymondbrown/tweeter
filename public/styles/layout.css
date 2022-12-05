@@ -14,15 +14,25 @@ html {
  * Global layout stuff
  */
 
-#navBar {
-  font-family: "Bungee", sans-serif;
-}
-
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  width: 90%;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f1ec;
 }
 
 /*
