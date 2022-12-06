@@ -20,3 +20,7 @@
   color: white;
   background-color: #4056A1;
 }
+
+.negative-character-count {
+  color: red;
+}
