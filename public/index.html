@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,11 +31,6 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <!-- <script>document.addEventListener("dblclick", (event) => {
-      console.log(event);
-      coordinates = (`${event.screenX}, ${event.screenY}`);
-      console.log("coordinates", coordinates)
-    });</script> -->
   </head>
 
   <body>
@@ -48,7 +44,7 @@
     </nav>
 
     <!-- Header element-->
-    <header>
+    <header id="page-header">
       <div>
           <img id="profilePicture" src="/images/profile-hex.png"> 
       </div>
@@ -56,16 +52,13 @@
       <div>
           <h2>Your Name</h2>
       </div>
-  </header>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form id="text-box" method="POST" action="/tweets/">
-          <!-- <script>document.addEventListener("keydown", (event) => {
-              console.log(event);
-            });</script> -->
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="tweet-button-area">
@@ -73,6 +66,29 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <br>
+      <section class="tweet-container">
+        <article class="individual-tweet">
+          <header>
+            <div name="username-container" class="username-container">
+              <div>
+                <i class="fa-solid fa-plus"></i>
+                <span>exampleName</span>
+              </div>
+              <span>@exampleHandle</span>
+            </div>
+            <h3>Testing the tweet container</h3>
+          </header>
+          <footer>
+            <p><small>This is the footer </small></p>
+            <div name="icon-container" class="icon-container">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
