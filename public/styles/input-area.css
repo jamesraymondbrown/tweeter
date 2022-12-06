@@ -1,0 +1,16 @@
+#tweet-text {
+  display: flex;
+  width: 70vw;
+  background-color: #f4f1ec;
+  border-bottom: 5px solid black;
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
+}
+
+#tweet-button-area {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  border: 5px dotted red;
+}
