@@ -1,0 +1,22 @@
+#tweet-text {
+  display: flex;
+  width: 70vw;
+  background-color: #f4f1ec;
+  border-bottom: 5px solid black;
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
+  resize: none;
+}
+
+.tweet-button-area {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  font-family: "Bungee", sans-serif;
+}
+
+#submit-tweet-button {
+  color: white;
+  background-color: #4056A1;
+}
