@@ -1,19 +1,21 @@
-.tweet-container {
+#tweet-container {
   display: flex;
-  border: 4px solid black;
   width: 70vw;
-}
-
-.tweet-container:hover {
-  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.5);
+  flex-direction: column;
 }
 
 .individual-tweet {
+  padding: 20px;
   margin: 10px;
   width: 67vw;
+  border: 4px solid black;
 }
 
-.tweet-container header { 
+.individual-tweet:hover {
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+#tweet-container header { 
   border-bottom: 3px black;
 }
 
@@ -23,7 +25,7 @@
   margin: 0px
 }
 
-.tweet-container footer {
+#tweet-container footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,3 +45,10 @@
   color: rgb(184, 160, 23);  
 }
 
+.avatar-on-tweet {
+
+}
+
+.tweet-footer-text {
+  font-size: medium;
+}
