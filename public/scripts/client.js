@@ -91,9 +91,10 @@ $(document).ready(function() {
 
 
     // Display error message if text is less than 1 or greater than 140 chars
-    const errorMessage = document.getElementById('user-input-error-message')
+    
 
     if (inputTextAsString === "" || inputTextAsString === null) {
+      const errorMessage = document.getElementById('user-input-error-message')
       $("#user-input-error-message").slideUp("slow");
       if (!errorMessage.textContent.includes('Please')) {
         $("#user-input-error-message").append("Please write in the text box before clicking \"tweet\"");
@@ -103,9 +104,9 @@ $(document).ready(function() {
     }
 
     if (inputTextAsString.length > 140) {
-      $("#user-input-error-message").slideUp("slow");
+      $("#user-input-error-message1").slideUp("slow");
       if (!errorMessage.textContent.includes('Tweets')) {
-        $("#user-input-error-message").append("Tweets can be a maximum of 140 characters");
+        $("#user-input-error-message2").append("Tweets can be a maximum of 140 characters");
       };
       $("#user-input-error-message").slideDown("slow");
       return false;
@@ -126,9 +127,8 @@ $(document).ready(function() {
       method: 'GET'
     })
     .then((data) => {
-      let newestTweet = data[data.length-1]
-      // console.log('getting my data', newestTweet.length);
-      renderTweets(newestTweet)
+      newestTweet = data[data.length-1];
+      renderTweets(newestTweet);
     })
     .catch((error) => {
       console.log('error', error);
