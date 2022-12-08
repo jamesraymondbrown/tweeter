@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function() {
-  
+
   // This function loops through an array of tweet objects
   // and adds them as html to our index.html file
   const renderTweets = function(tweets) {
@@ -21,7 +21,6 @@ $(document).ready(function() {
   };
 
 
-  
   // this is a helper function called by renderTweets(), that turns the tweet data into html
   const createTweetElement = function(tweetData) {
 
@@ -53,6 +52,7 @@ $(document).ready(function() {
 
     return $tweetInHTML;
   };
+  
 
   // Ajax request to display tweets on app main page
   const loadTweets = function() {
@@ -63,5 +63,5 @@ $(document).ready(function() {
   }
 
   loadTweets();
-  
+
 });
