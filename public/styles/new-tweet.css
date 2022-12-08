@@ -1,3 +1,7 @@
+.new-tweet {
+  margin-left: 9vw;
+}
+
 #tweet-text {
   display: flex;
   width: 70vw;
@@ -23,4 +27,21 @@
 
 .negative-character-count {
   color: red;
+}
+
+@media all and (min-width: 1024px) {
+  .new-tweet {
+    margin-left: 3vw;
+  }
+
+  #tweet-text {
+    display: flex;
+    width: 50vw;
+    background-color: #f4f1ec;
+    border-bottom: 5px solid black;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    resize: none;
+  }
 }

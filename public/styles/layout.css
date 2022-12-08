@@ -44,3 +44,29 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ /* @media all and (max-width 600px) {
+
+ } */
+
+@media all and (min-width: 1024px) {
+  #page-header {
+    display: flex;
+    width: 280%;
+    height: 45vh;
+    width: 30vw;
+    margin-top: 400px;
+    margin-left: 5vw;
+  }
+
+  .desktop-css-container {
+    display: flex;
+    flex-direction: row;
+    border: 4px dotted red;
+  }
+
+  main {
+    width: 63vw;
+    margin-top: 15vh
+  }
+}
