@@ -10,13 +10,21 @@ $(document).ready(function() {
   // and adds them as html to our index.html file
   const renderTweets = function(tweets) {
     let $tweetHTML = "";
-    for (const tweet of tweets) {
+    if (tweets.length > 1) {
+      for (const tweet of tweets) {
 
-      // calls createTweetElement() function for each tweet, which returns our data as HTML
-      $tweetHTML = createTweetElement(tweet);
+        // calls createTweetElement() function for each tweet, which returns our data as HTML
+        $tweetHTML = createTweetElement(tweet);
 
-      // appends our new HTML data to the index.html file
-      $('#tweet-container').append($tweetHTML);
+        // appends our new HTML data to the index.html file
+        $('#tweet-container').append($tweetHTML);
+      } 
+    }
+    else {
+        // no need to loop when only one tweet is passed through
+        $tweetHTML = createTweetElement(tweets);
+
+        $('#tweet-container').append($tweetHTML);
     }
   };
 
@@ -61,6 +69,51 @@ $(document).ready(function() {
       renderTweets(displayTweets);
     });
   }
+
+  // WHEN A TWEET IS SUBMITTED =>
+  $( "#text-box" ).submit(function( event ) {
+    event.preventDefault();
+
+    alert( "tweet submitted");
+
+    // convert our input text into a string, to check its length and value
+    // found help from https://stackoverflow.com/questions/8648892/how-to-convert-url-parameters-to-a-javascript-object
+    const $inputTextSerialized = $(this).serialize();    
+    const inputAsObject = JSON.parse('{"' + $inputTextSerialized.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
+    const inputTextAsString = inputAsObject.text;
+
+    if (inputTextAsString === "" || inputTextAsString === null) {
+      alert( "Please write in the text box before clicking \"tweet\"");
+      return false;
+    }
+
+    if (inputTextAsString.length > 140) {
+      alert( "Tweets can be a maximum of 140 characters");
+      return false;
+    }
+
+    //Get the new tweet using AJAX
+    $.ajax({
+      url: "/tweets/",
+      type: "POST",
+      data: $inputTextSerialized
+    });
+
+    // Display the new tweet using AJAX
+    $.ajax({
+      url: '/tweets',
+      method: 'GET'
+    })
+    .then((data) => {
+      let newestTweet = data[data.length-1]
+      // console.log('getting my data', newestTweet.length);
+      renderTweets(newestTweet)
+    })
+    // .catch((error) => {
+    //   console.log('error', error);
+    // });
+
+  });
 
   loadTweets();
 
