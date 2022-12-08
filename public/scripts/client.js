@@ -89,15 +89,29 @@ $(document).ready(function() {
     const inputAsObject = JSON.parse('{"' + $inputTextSerialized.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
     const inputTextAsString = inputAsObject.text;
 
+
+    // Display error message if text is less than 1 or greater than 140 chars
+    const errorMessage = document.getElementById('user-input-error-message')
+
     if (inputTextAsString === "" || inputTextAsString === null) {
-      alert( "Please write in the text box before clicking \"tweet\"");
+      $("#user-input-error-message").slideUp("slow");
+      if (!errorMessage.textContent.includes('Please')) {
+        $("#user-input-error-message").append("Please write in the text box before clicking \"tweet\"");
+      };
+      $("#user-input-error-message").slideDown("slow");
       return false;
     }
 
     if (inputTextAsString.length > 140) {
-      alert( "Tweets can be a maximum of 140 characters");
+      $("#user-input-error-message").slideUp("slow");
+      if (!errorMessage.textContent.includes('Tweets')) {
+        $("#user-input-error-message").append("Tweets can be a maximum of 140 characters");
+      };
+      $("#user-input-error-message").slideDown("slow");
       return false;
     }
+
+    $("#user-input-error-message").slideUp("slow");
 
     //Get the new tweet using AJAX
     $.ajax({
@@ -116,9 +130,9 @@ $(document).ready(function() {
       // console.log('getting my data', newestTweet.length);
       renderTweets(newestTweet)
     })
-    // .catch((error) => {
-    //   console.log('error', error);
-    // });
+    .catch((error) => {
+      console.log('error', error);
+    });
 
     $("#text-box")[0].reset();
 

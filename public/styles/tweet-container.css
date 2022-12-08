@@ -52,3 +52,10 @@
 .tweet-footer-text {
   font-size: medium;
 }
+
+#user-input-error-message {
+  background: yellow; 
+  color: red;
+  display: none;
+}
+
