@@ -18,7 +18,7 @@ This app was built with HTML, CSS, JS, jQuery and AJAX on the front-end, plus No
 
 ![Desktop View](https://github.com/jamesraymondbrown/Docs/blob/master/tweeter-desktop-view.png?raw=true)
 
-![Mobile view](https://github.com/jamesraymondbrown/Docs/blob/master/tweeter-mobile-view.png?raw=true)
+![Mobile view](https://github.com/jamesraymondbrown/Docs/blob/master/tweeter-mobile-view-2.png?raw=true)
 
 ## Dependencies
 
