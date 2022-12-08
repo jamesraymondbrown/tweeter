@@ -35,6 +35,15 @@ $(document).ready(function() {
     // use timeago to format render tweet date in readable format
     const formattedTweetDate = timeago.format(tweetData.created_at); 
 
+    // turn string literals into safe t
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
+    const safeHTML = `<p>${escape(tweetData.content.text)}</p>`;
+
     const $tweetInHTML = `
         <article class="individual-tweet">
           <header>
@@ -45,7 +54,7 @@ $(document).ready(function() {
               </div>
               <span class="handle-on-tweet">${tweetData.user.handle}</span>
             </div>
-            <h3 class="tweet-container-main-text">${tweetData.content.text}</h3>
+            <h3 class="tweet-container-main-text">${safeHTML}</h3>
           </header>
           <footer>
             <p class="tweet-footer-text">${formattedTweetDate}</p>
@@ -73,8 +82,6 @@ $(document).ready(function() {
   // WHEN A TWEET IS SUBMITTED =>
   $( "#text-box" ).submit(function( event ) {
     event.preventDefault();
-
-    alert( "tweet submitted");
 
     // convert our input text into a string, to check its length and value
     // found help from https://stackoverflow.com/questions/8648892/how-to-convert-url-parameters-to-a-javascript-object
