@@ -113,6 +113,8 @@ $(document).ready(function() {
     //   console.log('error', error);
     // });
 
+    $("#text-box")[0].reset();
+
   });
 
   loadTweets();
