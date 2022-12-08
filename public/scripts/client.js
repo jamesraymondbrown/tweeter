@@ -71,7 +71,7 @@ $(document).ready(function() {
   };
   
 
-  // Ajax request to display tweets on app main page
+  // Ajax request to display tweets on page load
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
     .then(function (displayTweets) {
@@ -79,7 +79,7 @@ $(document).ready(function() {
     });
   }
 
-  // WHEN A TWEET IS SUBMITTED =>
+  // Steps to submitting and displaying  a tweet:
   $( "#text-box" ).submit(function( event ) {
     event.preventDefault();
 
@@ -91,7 +91,6 @@ $(document).ready(function() {
 
 
     // Display error message if text is less than 1 or greater than 140 chars
-    
 
     if (inputTextAsString === "" || inputTextAsString === null) {
       const errorMessage = document.getElementById('user-input-error-message')
@@ -104,9 +103,10 @@ $(document).ready(function() {
     }
 
     if (inputTextAsString.length > 140) {
-      $("#user-input-error-message1").slideUp("slow");
+      const errorMessage = document.getElementById('user-input-error-message')
+      $("#user-input-error-message").slideUp("slow");
       if (!errorMessage.textContent.includes('Tweets')) {
-        $("#user-input-error-message2").append("Tweets can be a maximum of 140 characters");
+        $("#user-input-error-message").append("Tweets can be a maximum of 140 characters");
       };
       $("#user-input-error-message").slideDown("slow");
       return false;
@@ -114,15 +114,17 @@ $(document).ready(function() {
 
     $("#user-input-error-message").slideUp("slow");
 
-    //Get the new tweet using AJAX
-    $.ajax({
+    //Create functions to call POST and GET the tweet with ajax
+    const postTweet = () => {
+      return $.ajax({
       url: "/tweets/",
       type: "POST",
       data: $inputTextSerialized
-    });
-
-    // Display the new tweet using AJAX
-    $.ajax({
+    })
+    };
+    
+    const retrieveData = () => {
+      $.ajax({
       url: '/tweets',
       method: 'GET'
     })
@@ -132,7 +134,11 @@ $(document).ready(function() {
     })
     .catch((error) => {
       console.log('error', error);
-    });
+    })
+    };
+
+    //Call POST function, then GET data when that's done
+    postTweet().done(retrieveData);
 
     $("#text-box")[0].reset();
 
