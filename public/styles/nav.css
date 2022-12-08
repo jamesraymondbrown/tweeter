@@ -27,3 +27,11 @@
   justify-content: flex-end;
   align-items: center;
 }
+
+#write-new-tweet-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}

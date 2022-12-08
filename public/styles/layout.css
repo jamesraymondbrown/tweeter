@@ -62,7 +62,6 @@ main {
   .desktop-css-container {
     display: flex;
     flex-direction: row;
-    border: 4px dotted red;
   }
 
   main {

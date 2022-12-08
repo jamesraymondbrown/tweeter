@@ -40,8 +40,12 @@
     <nav class="navBar">
       <span id="navBarText">Tweeter</span>
       <div id="writeNewTweetContainer">
-        <span>Write a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
+        <a href="#main-container" id="write-new-tweet-button">
+          <div>Write a new tweet</div>
+          <i class="fa-solid fa-angles-down"></i>
+        </a>
+        <!-- <span>Write a new tweet</span> -->
+        
       </div>
     </nav>
 
@@ -58,7 +62,7 @@
       </header>
 
       <!-- Page-specific (main) content here -->
-      <main class="container desktop-column">
+      <main id="main-container">
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
           <h3 id="user-input-error-message"></h3>
@@ -73,26 +77,6 @@
         </section>
         <br>
         <section id="tweet-container">
-          <!-- <article class="individual-tweet">
-            <header>
-              <div name="username-container" class="username-container">
-                <div>
-                  <img class="avatar-on-tweet"></img>
-                  <span class="username-on-tweet"></span>
-                </div>
-                <span class="handle-on-tweet"></span>
-              </div>
-              <h3 class="tweet-container-main-text"></h3>
-            </header>
-            <footer>
-              <p class="tweet-footer-text"></p>
-              <div name="icon-container" class="icon-container">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-            </footer>
-          </article> -->
         </section>
       </main>
     </div>
